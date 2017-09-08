@@ -1,3 +1,5 @@
+package com.agile.practice.c100;
+
 public class TNode {
     int val;
     TNode left;
