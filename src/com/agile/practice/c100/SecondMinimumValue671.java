@@ -2,29 +2,36 @@ package com.agile.practice.c100;
 
 public class SecondMinimumValue671 {
 	
-	public static int seMin;
+	public static long seMin = Long.MAX_VALUE;
+	public static int min;
 
     public static void main(String[] args) {
         BinaryTree  bt = new BinaryTree();
         Node node = bt.buildTree();
         bt.printTree(node);
-        System.out.println(findSecondMinimumValue(node));
-        System.out.println(findMaxValue(node));
-        System.out.println(seMin);
+        System.out.println(findSecondMinimumVal(node));
+        System.out.println(min);
+
+    }
+    
+    public static int findSecondMinimumVal(Node root) {
+        min = (Integer) root.data;
+        findSecondMinimumValue(root);
+        return seMin < Long.MAX_VALUE ? (int) seMin : -1;
     }
 
-    public static int findSecondMinimumValue(Node<Integer> root) {
-        if (root == null) return 100;
-        int res = root.data;
-        int lv = findSecondMinimumValue(root.left);
-        int rv = findSecondMinimumValue(root.right);
-        if (lv < res) {
-        	res = lv;
-        }
-        if (rv < res) {
-        	res = rv; 
-        }
-        return res;
+    public static void findSecondMinimumValue(Node<Integer> root) {
+
+    	if (root != null) {
+    		if (min < root.data && root.data < seMin) {
+    			seMin = root.data;
+    		}	
+    		else if (min > root.data){
+    			min = root.data;
+    		}
+			findSecondMinimumValue(root.left);
+			findSecondMinimumValue(root.right);
+    	}
     }
     
     public static int findMaxValue(Node<Integer> root) {
@@ -32,6 +39,7 @@ public class SecondMinimumValue671 {
         int res = root.data;
         int lv = findMaxValue(root.left);
         int rv = findMaxValue(root.right);
+        System.out.println(root.data);
         if (lv > res) res = lv;
         if (rv > res) res = rv;
         return res;
