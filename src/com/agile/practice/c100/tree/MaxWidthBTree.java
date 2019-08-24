@@ -11,7 +11,7 @@ public class MaxWidthBTree {
         if (root == null) return 0;
         if (root.left != null) widthOfBinaryTree(root.left);
         if (root.right != null) widthOfBinaryTree(root.right);
-        
+        return 0;
     }
 
 }

@@ -8,7 +8,7 @@ public class BinaryGap868 {
 	}
 	
     public int binaryGap(int N) {
-        
+        return 0;
     }
 
 }
