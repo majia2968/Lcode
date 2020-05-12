@@ -21,7 +21,6 @@ public class MaxDepth559 {
         	return max+1;
         }       
     }
-
 }
 
 class Node {

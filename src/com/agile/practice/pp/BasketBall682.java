@@ -5,11 +5,6 @@ import java.util.List;
 
 public class BasketBall682 {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String[] ops = {"5","2","C","D","+"};
-		System.out.println(calPoints(ops));
-	}
 	
     public static int calPoints(String[] ops) {
         int sum = 0;

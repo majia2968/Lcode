@@ -7,15 +7,17 @@ public class MaxWidthBST {
 
     public int getWidTh(TreeNode root) {
         if (root == null) return 0;
-        int max;
-        Queue<TreeNode> que = new LinkedList<TreeNode>();
+        int max = 0;
+        Queue<TreeNode> que = new LinkedList<>();
         que.offer(root);
-        que.offer(null);
         while (!que.isEmpty()) {
-            TreeNode node = que.poll();
-            que.offer(node.left);
-            que.offer(node.right);
+            int size = que.size();
+            while (size-- > 0) {
+                TreeNode node = que.poll();
+                if (node.left != null) que.offer(node.left);
+                if (node.right != null) que.offer(node.right);
+            }
         }
-        return 0;
+        return max;
     }
 }

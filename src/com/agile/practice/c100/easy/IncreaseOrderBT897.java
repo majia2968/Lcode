@@ -7,7 +7,6 @@ public class IncreaseOrderBT897 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
 	}
 	
 	public TreeNode increasingBST(TreeNode root) {
