@@ -1,16 +1,15 @@
 package com.agile.practice.easy;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Sorting {
     static int[] arr = {23,6,4,6,12,8,34,2,9};
-    static int[] tempArr = new int[arr.length];
+    static int[] tempArray = new int[arr.length];
     public static void main(String[] args) {
         //int[] arr = {23,6,4,6,12,8,34,2,9};
         //bubbleSort(arr);
         mergeSort(arr, 0, arr.length-1);
-        System.out.println(Arrays.toString(tempArr));
+        System.out.println(Arrays.toString(tempArray));
         int[] arr2 = {1,3,4,7,33};
         int[] arr1 = {2,4,6,8};
         System.out.println(Arrays.toString(mergeArray(arr2, arr1)));
@@ -37,11 +36,11 @@ public class Sorting {
         if (l < r) {
             mergeSort(arr, l, m);
             mergeSort(arr, m+1, r);
-            merge(l, r, m);
+            merge(l, m, r);
         }
     }
 
-    static void merge(int l, int r, int m) {
+    static void merge(int l, int m, int r) {
         int i = l;
         int j = m+1;
         int k = l;
@@ -49,22 +48,67 @@ public class Sorting {
 
         while (i <= m && j <= r) {
             if (arr[i] < arr[j]) {
-                tempArr[k++] = arr[i++];
+                tempArray[k++] = arr[i++];
             }
             else {
-                tempArr[k++] = arr[j++];
+                tempArray[k++] = arr[j++];
             }
         }
         while (i <= m) {
-            tempArr[k++] = arr[i++];
+            tempArray[k++] = arr[i++];
         }
         while (j <= r) {
-            tempArr[k++] = arr[j++];
+            tempArray[k++] = arr[j++];
+        }
+        for (int f = l; f <=r; f++) {
+            arr[f]=tempArray[f];
         }
     }
 
 
+    private static void merge1(int start, int mid, int end) {
+        // Initializing temp array and index
+        //int[] tempArray=new int[arr.length];
+        int tempArrayIndex=start;
 
+        System.out.print("Before Merging:  ");
+        //printArray(arr,start,end);
+
+        int startIndex=start;
+        int midIndex=mid+1;
+
+        // It will iterate until smaller list reaches to the end
+        while(startIndex<=mid && midIndex<=end)
+        {
+            if(arr[startIndex]< arr[midIndex])
+            {
+                tempArray[tempArrayIndex++]=arr[startIndex++];
+            }
+            else
+            {
+                tempArray[tempArrayIndex++]=arr[midIndex++];
+            }
+        }
+
+        // Copy remaining elements
+        while(startIndex<=mid)
+        {
+            tempArray[tempArrayIndex++]=arr[startIndex++];
+        }
+        while(midIndex<=end)
+        {
+            tempArray[tempArrayIndex++]=arr[midIndex++];
+        }
+
+        // Copy tempArray to actual array after sorting
+        for (int i = start; i <=end; i++) {
+            //arr[i]=tempArray[i];
+        }
+
+        System.out.print("After merging:   ");
+        //printArray(tempArray,start,end);
+        System.out.println();
+    }
 
 
 
