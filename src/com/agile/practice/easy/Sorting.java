@@ -8,12 +8,61 @@ public class Sorting {
     public static void main(String[] args) {
         //int[] arr = {23,6,4,6,12,8,34,2,9};
         //bubbleSort(arr);
-        mergeSort(arr, 0, arr.length-1);
-        System.out.println(Arrays.toString(tempArray));
+        mergeSort1(0, arr.length-1);
+        System.out.println(Arrays.toString(arr));
         int[] arr2 = {1,3,4,7,33};
         int[] arr1 = {2,4,6,8};
         System.out.println(Arrays.toString(mergeArray(arr2, arr1)));
     }
+
+    static void mergeSort1(int left, int right) {
+        int mid = (left + right) / 2;
+        if (left < right) {
+            mergeSort1(left, mid);
+            mergeSort1(mid+1, right);
+            merge2(left, mid, right);
+        }
+    }
+
+    static void merge2(int l, int m, int r) {
+        int lIndex = 0;
+        int rIndex = 0;
+        int k = 0;
+        int[] arr1 = new int[m];
+        int[] arr2 = new int[r-m];
+
+        for (int c = 0; c < arr1.length; c++) {
+            arr1[c] = arr[c];
+        }
+        for (int v = 0; v < arr2.length; v++) {
+            arr2[v] = arr[m+v];
+        }
+
+        while (lIndex < m && rIndex < r-m) {
+            if (arr1[lIndex] < arr2[rIndex]) {
+                arr[k++] = arr1[lIndex++];
+            }
+            else {
+                arr[k++] = arr2[rIndex++];
+            }
+            while (lIndex < m) {
+                arr[k++] = arr1[lIndex++];
+            }
+            while (rIndex < r-m) {
+                arr[k++] = arr2[rIndex++];
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
     static void bubbleSort(int arr[]) {
         for (int i = 0; i < arr.length-1; i++) {
