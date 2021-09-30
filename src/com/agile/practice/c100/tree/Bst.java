@@ -11,11 +11,12 @@ public class Bst {
         root.left = new Node(3);
         root.right = new Node(10);
         root.left.left = new Node(1);
-        root.left.left.left = new Node(10);
+        root.left.left.left = new Node(100);
         root.left.right = new Node(6);
-        root.right.left = new Node(7);
+        root.right.left = new Node(117);
         root.right.right = new Node(14);
         root.right.right.right = new Node(16);
+        root.right.right.right.left = new Node(126);
         return root;
     }
 
