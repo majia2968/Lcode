@@ -55,4 +55,8 @@ public class Test {
         return new int[]{-1, -1};
     }
 
+    public int lengthOfLongestSubstring(String s) {
+        return 1;
+    }
+
 }

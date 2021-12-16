@@ -1,6 +1,7 @@
 package com.leetcode.dev.string;
 
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by xuefengluo on 10/25/21.
@@ -8,18 +9,14 @@ import java.util.HashSet;
 public class LongestSubString03 {
 
     public int lengthOfLongestSubstring(String s) {
-        HashSet<Character> set = new HashSet<>();
-        int len = s.length();
-        int max = 0;
+        Set<Character> set = new HashSet<>();
         int sIndex = 0;
-        for (int fIndex = 0; fIndex < len; fIndex++) {
-            while (set.contains(s.charAt(fIndex))) {
-                set.remove(s.charAt(sIndex));
-                sIndex++;
+        int len = s.length();
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < len; i++) {
+            while (sIndex < i) {
+
             }
-            set.add(s.charAt(fIndex));
-            max = Math.max(max, set.size());
         }
-        return max;
     }
 }
