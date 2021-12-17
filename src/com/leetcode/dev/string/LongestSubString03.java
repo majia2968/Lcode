@@ -18,5 +18,6 @@ public class LongestSubString03 {
 
             }
         }
+        return 0;
     }
 }
