@@ -20,6 +20,16 @@ public class Bst {
         return root;
     }
 
+    public static Node buildEasyTree() {
+        Node root = new Node(801);
+        root.left = new Node(3);
+        root.right = new Node(100);
+        root.left.left = new Node(1);
+        root.left.left.left = new Node(17);
+        root.left.right = new Node(6);
+        return root;
+    }
+
     public static void printTree(Node root) {
         BTreePrinter.printNode(root);
     }
