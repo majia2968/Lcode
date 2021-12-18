@@ -8,15 +8,15 @@ import java.util.Queue;
 public class BFT {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
         Bst  bt = new Bst();
         Node node = bt.buildTree();
-		bt.printTree(node);
+        bt.printTree(node);
         System.out.println(height(node));
         System.out.println(getWidth(node, 4));
         System.out.println("max width is below:");
         System.out.println(maxWidth(node));
-	}
+    }
 	
     static int maxWidth(Node root) 
     {

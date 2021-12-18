@@ -1,7 +1,5 @@
 package com.agile.practice.pp;
 
-import org.springframework.util.StringUtils;
-
 public class RepeatSubPattern {
 
     public static void main(String[] args) {
@@ -9,7 +7,7 @@ public class RepeatSubPattern {
         String[] ops = {"5","2","C","D","+"};
         System.out.println(repeatedSubstringPattern("abcabcabc"));
         System.out.println(repeatedSubstringPattern("ababab"));
-        System.out.println(StringUtils.isEmpty(null));
+        //System.out.println(StringUtils.isEmpty(null));
 
     }
 

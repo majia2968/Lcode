@@ -11,13 +11,16 @@ public class RepeatSubString {
 
     public boolean repeatedSubstringPattern1(String s) {
         int len = s.length();
-        Set<String> set = new HashSet<>();
+        StringBuilder substr = new StringBuilder();
         boolean flag = false;
-        for (int i = 0; i < len; i++) {
-            if (!set.contains(s.substring(0, i))) {
-                //set.add();
+        for (int i = 1; i < len/2; i++) {
+            substr.append(s.charAt(i));
+            String clearedFromSubstrings = s.replaceAll(substr.toString(), "");
+            if (clearedFromSubstrings.length() == 0) {
+                return true;
             }
         }
-        return (s+s).substring(1, len*2-1).contains(s);
+        return false;
     }
+
 }
